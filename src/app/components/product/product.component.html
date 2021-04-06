@@ -1,0 +1,70 @@
+<div class="row">
+    <div *ngIf="addedToCart" class="alert alert-success mb-4 col-12 col-lg-10 offset-lg-1">
+        <strong>Very nice!</strong> {{ successQnt | productQnt }} added to the cart 🛒
+    </div>
+    <div class="col-lg-6 offset-lg-1 mb-5">
+        <img src="{{ product.images[selectedImg] }}" alt="Image of the product" class="mb-4">
+        <div class="row">
+            <ng-container *ngFor="let image of product.images; index as i">
+                <div class="col-3 mb-4">
+                    <a role="button" (click)="changeSelectedImg(i)"><img src="{{ image }}" alt="Image of the product"></a>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <div class="col-lg-4 mb-5">
+        <div class="mb-4">
+            <h5>{{ product.make }}</h5>
+            <h1>{{ product.model }}</h1>
+            <h1 *ngIf="product.price > 0">{{ product.price | currency:'INR' }}</h1>
+            <h1 *ngIf="product.price === 0">{{ product.price | noPrice }}</h1>
+            <div *ngIf="product.stock <= 3" class="alert alert-danger mt-4">{{ product.stock | stock }}</div>
+        </div>
+        <div class="mb-5">{{ product.description }}</div>
+        <ng-container *ngIf="product.stock > 0">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-3 col-lg-12 col-xl-4">
+                        <select class="custom-select" id="quantity" name="quantity" [(ngModel)]="quantity">
+                            <ng-container *ngFor="let placeholder of stock; index as i">
+                                <option value="{{ i + 1 }}">{{ i + 1 }}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-9 col-lg-12 col-xl-8">
+                        <button type="button" class="btn btn-warning btn-block" (click)="addToCart(warning)">Add to cart</button>
+                    </div>
+                </div>
+            </form>
+        </ng-container>
+        <ng-container *ngIf="product.stock <= 0">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-3 col-lg-12 col-xl-4">
+                        <select class="custom-select" disabled>
+                            <option value="0">0</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-9 col-lg-12 col-xl-8">
+                        <button type="button" class="btn btn-warning btn-block" disabled>Add to cart</button>
+                    </div>
+                </div>
+            </form>
+        </ng-container>
+        <!-- Modal Start -->
+        <ng-template #warning>
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Login or register</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Only registered users can purchase products from our website. Please login or create an account if you haven't one.</p>
+                <button type="button" class="btn btn-warning btn-block" (click)="modal.hide()" routerLink="/login">Login</button>
+                <button type="button" class="btn btn-light btn-block" (click)="modal.hide()" routerLink="/register">Register</button>
+            </div>
+        </ng-template>
+        <!-- Modal End -->
+    </div>
+</div>

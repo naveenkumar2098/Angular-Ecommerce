@@ -1,0 +1,29 @@
+<div class="row mt-5">
+    <div class="col alert-box alert alert-danger" role="alert" *ngIf="hasError">
+        <div><strong>Something went wrong.</strong> Please try again.</div>
+    </div>
+    <div class="col alert-box alert alert-success" role="alert" *ngIf="success">
+        <div><strong>Login successful.</strong> Here we go 🚀</div>
+    </div>
+</div>
+<div class="row mb-5">
+    <div class="col login-box mt-5 mb-5">
+        <h2>Welcome!</h2>
+        <p>It's good to have you back 😊</p>
+        <hr>
+        <form [formGroup]="formLogin" (ngSubmit)="loginUser()">
+            <div class="form-group mt-4">
+                <label for="inputEmail">Email address</label>
+                <input type="email" class="form-control form-control-lg" id="inputEmail1" formControlName="email" required>
+                <div *ngIf="email.touched">
+                    <small class="form-text" [hidden]="!email.errors?.email"><span>This e-mail address doesn't seem to be right.</span></small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Password</label>
+                <input type="password" class="form-control form-control-lg" id="inputPassword" formControlName="password" required>
+            </div>
+            <button type="submit" class="btn btn-lg btn-warning btn-block mt-4" [disabled]="!formLogin.valid">Login</button>
+        </form>
+    </div>
+</div>

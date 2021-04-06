@@ -1,0 +1,27 @@
+.navbar {
+    padding: 0;
+}
+
+.store-logo-temp {
+    width: 30px;
+    height: 30px;
+    background-color: #ffc107;
+    display: inline-block;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.cart-btn {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(/assets/images/cart.svg);
+}
+
+.cart-btn:hover {
+    background: url(/assets/images/cart.svg) 40px 40px;
+}

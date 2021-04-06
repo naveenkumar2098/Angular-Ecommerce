@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-3 mb-5">
+        <p><strong>Hello, {{ user.firstName }}</strong></p>
+        <ul class="list-group">
+            <a [routerLink]="['/account', 1]" class="list-group-item list-group-item-action">Profile</a>
+            <li class="list-group-item active">Orders</li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <p><strong>Orders</strong></p>
+        <div class="list-group mb-5">
+            <div class="alert alert-light" role="alert">
+                <strong>Need help?</strong> Give us a call 🤙🏼&nbsp; <small>+351 253 29 55 038</small>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Ref</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Products</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">State</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let order of orders">
+                        <tr>
+                            <th scope="row"><small>{{ order.id }}</small></th>
+                            <td><small>{{ order.date | date }}</small></td>
+                            <!-- <td>
+                                <div *ngFor="let product of order.orderProducts; index as i">
+                                    <small>{{ product.productId }}</small><br>
+                                    <small>{{ product.unitPrice | currency:'EUR' }} <span *ngIf="product.quantity > 1">x {{ product.quantity }}</span></small><br>
+                                    <small *ngIf="product.quantity > 1">{{ product.subTotal | currency:'EUR' }}</small>
+                                    <hr *ngIf="i !== order.orderProducts.length - 1">
+                                </div>
+                            </td> -->
+                            <td><small>{{ order.orderProducts.length | productQnt }}</small></td>
+                            <td><small>{{ order.totalPrice | currency:'EUR' }}</small></td>
+                            <td><small>{{ order.state }}</small></td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

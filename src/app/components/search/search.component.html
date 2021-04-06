@@ -1,0 +1,21 @@
+<div class="row mb-5">
+    <div class="col-lg-10 offset-lg-1">
+        <form>
+            <div class="form-row">
+                <div class="form-group col-8 col-md-8">
+                    <input type="text" class="form-control" id="filter" name="filter" placeholder="filter products..." [(ngModel)]="filter" (input)="search()">
+                </div>
+                <div class="form-group col-4 col-md-2">
+                    <select class="custom-select" id="field" name="field" [(ngModel)]="field" (change)="search()">
+                        <option value="all">All</option>
+                        <option value="make">Make</option>
+                        <option value="model">Model</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <button type="submit" class="btn btn-warning btn-block" (click)="clear()">Clear all</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

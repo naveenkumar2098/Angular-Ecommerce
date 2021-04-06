@@ -1,0 +1,20 @@
+.alert-success {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 0;
+    z-index: 3000;
+}
+
+.product-thumb {
+    cursor: pointer;
+}
+
+.product-thumb img {
+    width: 100%;
+}
+
+.featured img {
+    width: 100%;
+}

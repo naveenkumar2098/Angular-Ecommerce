@@ -1,0 +1,97 @@
+<button *ngIf="addedToCart" type="button" class="alert alert-success">Product added to your shopping cart 👍🏼</button>
+<div class="row">
+    <div class="col-12">
+        <div class="alert alert-danger" role="alert" *ngIf="products.length === 0">
+            No products found! 🤷🏻‍♀️
+        </div>
+    </div>
+</div>
+<!-- Featured -->
+<ng-container *ngIf="!searching">
+    <p><strong>Featured products</strong></p>
+    <div class="row featured">
+        <!-- Big one start -->
+        <div class="col-lg-6 mb-5">
+            <div [routerLink]="['/product', featured[0].id]" class="product-thumb">
+                <img class="mb-3" src="{{ featured[0].images[0] }}" alt="{{ featured[0].name }}">
+                <div class="mb-3 product-details">
+                    <div>{{ featured[0].make }}</div>
+                    <div><strong>{{ featured[0].model }}</strong></div>
+                    <div>{{ featured[0].price | currency:'EUR' }}</div>
+                </div>
+            </div>
+            <div *ngIf="featured[0].stock > 0">
+                <button type="button" class="btn btn-warning" (click)="addToCart(warning, featured[0].id)">Add to cart</button>
+            </div>
+            <div *ngIf="featured[0].stock <= 0">
+                <button type="button" class="btn btn-light" disabled>Add to cart</button>
+            </div>
+        </div>
+        <!-- Big one end -->
+        <!-- 3 smaller start -->
+        <div class="col-lg-6 mb-5">
+            <ng-container *ngFor="let product of featured; index as i">
+                <ng-container *ngIf="i > 0">
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <div class="product-thumb" [routerLink]="['/product', product.id]"><img src="{{ product.images[0] }}" alt="{{ product.name }}"></div>
+                        </div>
+                        <div class="col-6 product-thumb">
+                            <div class="mb-3 product-details" [routerLink]="['/product', product.id]">
+                                <div>{{ product.make }}</div>
+                                <div><strong>{{ product.model }}</strong></div>
+                                <div *ngIf="product.price > 0">{{ product.price | currency:'EUR' }}</div>
+                            </div>
+                            <div *ngIf="product.stock > 0">
+                                <button type="button" class="btn btn-warning" (click)="addToCart(warning, product.id)">Add to cart</button>
+                            </div>
+                            <div *ngIf="product.stock <= 0">
+                                <button type="button" class="btn btn-light" disabled>Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+        <!-- 3 smaller end -->
+    </div>
+</ng-container>
+<!-- Featured end -->
+<!-- Product list start -->
+<div class="row">
+    <ng-container *ngFor="let product of products">
+        <div class="col-md-6 col-lg-4 col-xl-3 mb-5 product-thumb">
+            <div [routerLink]="['/product', product.id]">
+                <img class="mb-3" src="{{ product?.images[0] }}" alt="{{ product.name }}">
+                <div class="mb-3 product-details">
+                    <div>{{ product.make }}</div>
+                    <div><strong>{{ product.model }}</strong></div>
+                    <div *ngIf="product.price > 0">{{ product.price | currency:'INR' }}</div>
+                    <div *ngIf="product.price === 0">{{ product.price | noPrice }}</div>
+                </div>
+            </div>
+            <div *ngIf="product.stock > 0">
+                <button type="button" class="btn btn-warning" (click)="addToCart(warning, product.id)">Add to cart</button>
+            </div>
+            <div href="#" *ngIf="product.stock <= 0">
+                <button type="button" class="btn btn-light" disabled>Add to cart</button>
+            </div>
+        </div>
+    </ng-container>
+</div>
+<!-- Product list end -->
+<!-- Modal start -->
+<ng-template #warning>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Login or register</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>Only registered users can purchase products from our website. Please login or create an account if you haven't one.</p>
+        <button type="button" class="btn btn-warning btn-block" (click)="modal.hide()" routerLink="/login">Login</button>
+        <button type="button" class="btn btn-light btn-block" (click)="modal.hide()" routerLink="/register">Register</button>
+    </div>
+</ng-template>
+<!-- Modal end wdwef -->

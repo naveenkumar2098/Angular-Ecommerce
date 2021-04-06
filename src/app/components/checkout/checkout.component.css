@@ -1,0 +1,33 @@
+.product-img {
+    float: left;
+}
+
+.product-img img {
+    width: 50px;
+}
+
+.product-info {
+    align-self: center;
+    display: inline-block;
+}
+
+.details {
+    align-self: center;
+    text-align: right;
+}
+
+.quantity {
+    min-width: 30px;
+}
+
+.total {
+    min-width: 100px;
+}
+
+.update {
+    text-align: right;
+}
+
+.delivery-header {
+    align-self: center;
+}

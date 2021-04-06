@@ -1,0 +1,6 @@
+<div class="row">
+    <div class="col">
+        <app-checkout *ngIf="checkingOut" [shoppingCart]="shoppingCart" [userId]="userId" (checkingOut)="checkOut($event)"></app-checkout>
+        <app-shopping-cart-list *ngIf="!checkingOut" [user]="user" [shoppingCart]="shoppingCart" (checkingOut)="checkOut($event)"></app-shopping-cart-list>
+    </div>
+</div>

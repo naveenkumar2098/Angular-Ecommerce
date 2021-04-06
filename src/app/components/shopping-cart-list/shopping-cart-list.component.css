@@ -1,0 +1,46 @@
+img {
+    width: 100%;
+}
+
+.delete {
+    align-self: center;
+}
+
+.delete-btn {
+    display: block;
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: crimson;
+}
+
+.delete-btn:hover {
+    cursor: pointer;
+    background-color: maroon;
+}
+
+.delete-btn img {
+    vertical-align: top;
+}
+
+.description {
+    line-height: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+}
+
+.quantity {
+    align-self: flex-end;
+}
+
+.price {
+    text-align: right;
+    align-self: flex-end;
+}
+
+.total {
+    border-top: solid thin #cccccc;
+}

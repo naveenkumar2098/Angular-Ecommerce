@@ -1,0 +1,269 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "firstName": "Naveen",
+        "lastName": "Kumar",
+        "email": "email@email.com",
+        "password": "1234",
+        "address": "Delhi",
+        "addressOpt": "",
+        "phone": 9123456785,
+        "birthdate": "1998-11-20",
+        "postalCode": "110041",
+        "city": "New Delhi",
+        "country": "India",
+        "shoppingCart": [],
+        "orders": []
+      }
+    ],
+    "products": [
+      {
+        "id": 1,
+        "categoryId": 1,
+        "name": "Acer Predator Helios 300",
+        "make": "ACER PREDATOR",
+        "model": "Helios 300",
+        "price": 360,
+        "images": [
+          "assets/images/laptops/predator/predator-01.jpg",
+          "assets/images/laptops/predator/predator-02.png"
+        ],
+        "description": "The Helios 300 drops you right into the game with everything you need to obliterate the opposition on a blisteringly fast 240Hz1 /3ms2 display. Only now, we’ve armed it with an NVIDIA® GeForce RTX™ 30801, a 10th Gen Intel® Core™ i7 Mobile Processor1 and our custom-engineered 4th Gen AeroBlade™ 3D Technology.",
+        "stock": 10,
+        "featured": false
+      },
+      {
+        "id": 2,
+        "categoryId": 3,
+        "name": "Dell P Series P2419H",
+        "make": "DELL",
+        "model": "P2419H",
+        "price": 150,
+        "images": [
+          "assets/images/monitors/dell/dell-01.png",
+          "assets/images/monitors/dell/dell-02.jpg"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam non nisi est sit amet facilisis magna etiam. Massa id neque aliquam vestibulum morbi. Orci dapibus ultrices in iaculis nunc sed. Nunc pulvinar sapien et ligula ullamcorper. Orci dapibus ultrices in iaculis. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Suscipit adipiscing bibendum est ultricies integer quis auctor. Amet aliquam id diam maecenas. Sed augue lacus viverra vitae. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.",
+        "stock": 10,
+        "featured": false
+      },
+      {
+        "id": 3,
+        "categoryId": 2,
+        "name": "Poco F1",
+        "make": "POCO",
+        "model": "F1",
+        "price": 200,
+        "images": [
+          "assets/images/smartphones/poco/01.jpg",
+          "assets/images/smartphones/poco/02.jpg",
+          "assets/images/smartphones/poco/03.jpg"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam non nisi est sit amet facilisis magna etiam. Massa id neque aliquam vestibulum morbi. Orci dapibus ultrices in iaculis nunc sed. Nunc pulvinar sapien et ligula ullamcorper. Orci dapibus ultrices in iaculis. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Suscipit adipiscing bibendum est ultricies integer quis auctor. Amet aliquam id diam maecenas. Sed augue lacus viverra vitae. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.",
+        "stock": 1,
+        "featured": true
+      },
+      {
+        "id": 4,
+        "categoryId": 3,
+        "name": "Acer HA220Q",
+        "make": "ACER",
+        "model": "HA220Q",
+        "price": 95,
+        "images": [
+          "assets/images/monitors/acer/01.png",
+          "assets/images/monitors/acer/02.jpg"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam non nisi est sit amet facilisis magna etiam. Massa id neque aliquam vestibulum morbi. Orci dapibus ultrices in iaculis nunc sed. Nunc pulvinar sapien et ligula ullamcorper. Orci dapibus ultrices in iaculis. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Suscipit adipiscing bibendum est ultricies integer quis auctor. Amet aliquam id diam maecenas. Sed augue lacus viverra vitae. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.",
+        "stock": 2,
+        "featured": false
+      },
+      {
+        "id": 5,
+        "categoryId": 3,
+        "name": "BenQ GW2480",
+        "make": "BENQ",
+        "model": "GW2480",
+        "price": 100,
+        "images": [
+          "assets/images/monitors/benq/01.jpg",
+          "assets/images/monitors/benq/02.jpg"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam non nisi est sit amet facilisis magna etiam. Massa id neque aliquam vestibulum morbi. Orci dapibus ultrices in iaculis nunc sed. Nunc pulvinar sapien et ligula ullamcorper. Orci dapibus ultrices in iaculis. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Suscipit adipiscing bibendum est ultricies integer quis auctor. Amet aliquam id diam maecenas. Sed augue lacus viverra vitae. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.",
+        "stock": 8,
+        "featured": true
+      },
+      {
+        "id": 6,
+        "categoryId": 2,
+        "name": "Samsung Galaxy S21",
+        "make": "SAMSUNG",
+        "model": "Galaxy S21",
+        "price": 750,
+        "images": [
+          "assets/images/smartphones/samsung/01.jpg",
+          "assets/images/smartphones/samsung/02.webp"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam non nisi est sit amet facilisis magna etiam. Massa id neque aliquam vestibulum morbi. Orci dapibus ultrices in iaculis nunc sed. Nunc pulvinar sapien et ligula ullamcorper. Orci dapibus ultrices in iaculis. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Suscipit adipiscing bibendum est ultricies integer quis auctor. Amet aliquam id diam maecenas. Sed augue lacus viverra vitae. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.",
+        "stock": 5,
+        "featured": false
+      },
+      {
+        "id": 7,
+        "categoryId": 4,
+        "name": "Zebronics ZEB-KM2100",
+        "make": "ZEBRONICS",
+        "model": "ZEB-KM2100",
+        "price": 30,
+        "images": [
+          "assets/images/keyboard/zebronics/01.jpg",
+          "assets/images/keyboard/zebronics/02.jpeg"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam non nisi est sit amet facilisis magna etiam. Massa id neque aliquam vestibulum morbi. Orci dapibus ultrices in iaculis nunc sed. Nunc pulvinar sapien et ligula ullamcorper. Orci dapibus ultrices in iaculis. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Suscipit adipiscing bibendum est ultricies integer quis auctor. Amet aliquam id diam maecenas. Sed augue lacus viverra vitae. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.",
+        "stock": 2,
+        "featured": true
+      },
+      {
+        "id": 8,
+        "categoryId": 4,
+        "name": "Cosmic Byte CB-GK-11",
+        "make": "COSMICBYTE",
+        "model": "CB-GK-11",
+        "price": 35,
+        "images": [
+          "assets/images/keyboard/cosmicbyte/01.jpg",
+          "assets/images/keyboard/cosmicbyte/02.jpg"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam non nisi est sit amet facilisis magna etiam. Massa id neque aliquam vestibulum morbi. Orci dapibus ultrices in iaculis nunc sed. Nunc pulvinar sapien et ligula ullamcorper. Orci dapibus ultrices in iaculis. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Suscipit adipiscing bibendum est ultricies integer quis auctor. Amet aliquam id diam maecenas. Sed augue lacus viverra vitae. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.",
+        "stock": 4,
+        "featured": false
+      },
+      {
+        "id": 9,
+        "categoryId": 1,
+        "name": "ASUS TUF FX505DT",
+        "make": "ASUS",
+        "model": "TUF FX505DT",
+        "price": 700,
+        "images": [
+          "assets/images/laptops/asus/01.webp",
+          "assets/images/laptops/asus/02.jpg"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam non nisi est sit amet facilisis magna etiam. Massa id neque aliquam vestibulum morbi. Orci dapibus ultrices in iaculis nunc sed. Nunc pulvinar sapien et ligula ullamcorper. Orci dapibus ultrices in iaculis. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Suscipit adipiscing bibendum est ultricies integer quis auctor. Amet aliquam id diam maecenas. Sed augue lacus viverra vitae. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.",
+        "stock": 5,
+        "featured": false
+      },
+      {
+        "id": 10,
+        "categoryId": 4,
+        "name": "HyperX Alloy FPS Pro",
+        "make": "HyperX",
+        "model": "Alloy FPS Pro",
+        "price": 85,
+        "images": [
+          "assets/images/keyboard/hyperx/01.jpg",
+          "assets/images/keyboard/hyperx/02.jpg"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam non nisi est sit amet facilisis magna etiam. Massa id neque aliquam vestibulum morbi. Orci dapibus ultrices in iaculis nunc sed. Nunc pulvinar sapien et ligula ullamcorper. Orci dapibus ultrices in iaculis. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Suscipit adipiscing bibendum est ultricies integer quis auctor. Amet aliquam id diam maecenas. Sed augue lacus viverra vitae. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.",
+        "stock": 6,
+        "featured": false
+      },
+      {
+        "id": 11,
+        "categoryId": 2,
+        "name": "Mi 10T Pro",
+        "make": "MI",
+        "model": "10T Pro",
+        "price": 350,
+        "images": [
+          "assets/images/smartphones/mi/01.png",
+          "assets/images/smartphones/mi/02.jpg"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam non nisi est sit amet facilisis magna etiam. Massa id neque aliquam vestibulum morbi. Orci dapibus ultrices in iaculis nunc sed. Nunc pulvinar sapien et ligula ullamcorper. Orci dapibus ultrices in iaculis. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Suscipit adipiscing bibendum est ultricies integer quis auctor. Amet aliquam id diam maecenas. Sed augue lacus viverra vitae. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.",
+        "stock": 2,
+        "featured": false
+      },
+      {
+        "id": 12,
+        "categoryId": 3,
+        "name": "Samsung LC24F390FHWXXL",
+        "make": "SAMSUNG",
+        "model": "LC24F390FHWXXL",
+        "price": 300,
+        "images": [
+          "assets/images/monitors/samsung/01.webp",
+          "assets/images/monitors/samsung/02.jpg"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam non nisi est sit amet facilisis magna etiam. Massa id neque aliquam vestibulum morbi. Orci dapibus ultrices in iaculis nunc sed. Nunc pulvinar sapien et ligula ullamcorper. Orci dapibus ultrices in iaculis. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Suscipit adipiscing bibendum est ultricies integer quis auctor. Amet aliquam id diam maecenas. Sed augue lacus viverra vitae. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.",
+        "stock": 7,
+        "featured": false
+      },
+      {
+        "id": 13,
+        "categoryId": 1,
+        "name": "Alienware Gaming AW17R5-7405SLV-PUS",
+        "make": "ALIENWARE",
+        "model": "AW17R5-7405SLV-PUS",
+        "price": 2020,
+        "images": [
+          "assets/images/laptops/alienware/01.webp",
+          "assets/images/laptops/alienware/02.webp"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam non nisi est sit amet facilisis magna etiam. Massa id neque aliquam vestibulum morbi. Orci dapibus ultrices in iaculis nunc sed. Nunc pulvinar sapien et ligula ullamcorper. Orci dapibus ultrices in iaculis. Metus vulputate eu scelerisque felis imperdiet proin fermentum. Aliquam purus sit amet luctus venenatis lectus magna fringilla urna. Suscipit adipiscing bibendum est ultricies integer quis auctor. Amet aliquam id diam maecenas. Sed augue lacus viverra vitae. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.",
+        "stock": 9,
+        "featured": true
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Laptop"
+      },
+      {
+        "id": 2,
+        "name": "Smartphone"
+      },
+      {
+        "id": 3,
+        "name": "Monitor"
+      },
+      {
+        "id": 4,
+        "name": "Keyboard"
+      }
+    ],
+    "orders": [],
+    "paymentMethods": [
+      {
+        "id": 1,
+        "name": "Credit Card"
+      },
+      {
+        "id": 2,
+        "name": "PayPal"
+      },
+      {
+        "id": 3,
+        "name": "Cash on delivery"
+      }
+    ],
+    "shippingMethods": [
+      {
+        "id": 1,
+        "name": "DTDC",
+        "price": 50
+      },
+      {
+        "id": 2,
+        "name": "FEDEX",
+        "price": 200
+      },
+      {
+        "id": 3,
+        "name": "Store pickup",
+        "price": 0
+      }
+    ],
+    "messages": []
+  }

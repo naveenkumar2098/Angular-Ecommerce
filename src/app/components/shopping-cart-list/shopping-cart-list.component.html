@@ -1,0 +1,53 @@
+<p class="mb-5"><strong>Shopping Cart</strong></p>
+<div class="row" *ngIf="shoppingCart.length === 0">
+    <div class="col alert alert-danger" role="alert">
+        No products in the shopping cart! 🤷🏻‍♀️<br>
+        <small><a routerLink="/store"> Visit the store.</a></small>
+    </div>
+</div>
+<ng-container *ngIf="shoppingCart.length > 0">
+    <div class="row mb-5">
+        <div class="col-12 col-md-7"><strong>Product</strong></div>
+        <div class="col-6 col-md-2"><strong>Quantity</strong></div>
+        <div class="col-6 col-md-3 price"><strong>Price</strong></div>
+    </div>
+    <ng-container *ngFor="let line of shoppingCart">
+        <div class="row mb-5">
+            <div class="col-12 col-md-1 delete pt-4 pb-4">
+                <div class="delete-btn" (click)="deleteFromCart(line.product.id)">
+                    <img src="assets/images/times.svg" style="margin: 0; padding: 0;" alt="">
+                </div>
+            </div>
+            <div class="col-4 col-md-2">
+                <img src="{{ line.product.images[0] }}" alt="{{ line.product.name }}">
+            </div>
+            <div class="col-8 col-md-4 description">
+                <h6>{{ line.product.make }}</h6>
+                <h5><a [routerLink]="['/product', line.product.id]">{{ line.product.model }}</a></h5>
+                <small>{{ line.product.description }}</small>
+            </div>
+            <div class="col-6 col-md-3 pt-4 quantity">
+                <div class="add-quantity"></div>
+                <input type="number" class="form-control" id="quantity" value="{{ line.quantity }}" min="1" max="{{ line.product.stock }}" (change)="updateQuantity(line.quantity, line.product.id)" [(ngModel)]="line.quantity">
+                <small class="mt-5">Price per unit: {{ line.product.price | currency:'INR' }}</small>
+                <div class="remove-quantity"></div>
+            </div>
+            <div class="col-6 col-md-2 price">
+                {{ calculatePrice(line.product.id) | currency:'INR' }}
+            </div>
+        </div>
+    </ng-container>
+    <div class="row total pt-5 mb-5">
+        <div class="col-6 col-md-3 offset-md-7">
+            <strong>Total</strong>
+        </div>
+        <div class="col-6 col-md-2 price">
+            {{ calculateTotal() | currency:'INR' }}
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col col-md-5 offset-md-7">
+            <button type="button" class="btn btn-lg btn-block btn-warning" (click)="toCheckOut()">Proceed to checkout</button>
+        </div>
+    </div>
+</ng-container>

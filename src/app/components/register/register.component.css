@@ -1,0 +1,11 @@
+.register-box {
+    max-width: 900px;
+}
+
+.redirect-link {
+    font-size: 14px;
+}
+
+.redirect-link a {
+    text-decoration: underline;
+}

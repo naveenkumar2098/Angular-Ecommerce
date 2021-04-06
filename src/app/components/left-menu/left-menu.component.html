@@ -1,0 +1,7 @@
+<ul class="list-group mb-5">
+    <p><b>Categories</b></p>
+    <a role="button" (click)="filterCategory(0)" class="list-group-item list-group-item-action">All</a>
+    <ng-container *ngFor="let category of categories">
+        <a role="button" (click)="filterCategory(category.id)" class="list-group-item list-group-item-action">{{ category.name }}</a>
+    </ng-container>
+</ul>

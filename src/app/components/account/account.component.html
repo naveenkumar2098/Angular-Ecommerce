@@ -1,0 +1,146 @@
+<div class="row">
+    <div class="col-md-3 mb-5">
+        <p><strong>Hello, {{ user.firstName }}</strong></p>
+        <ul class="list-group">
+            <li class="list-group-item active">Profile</li>
+            <a [routerLink]="['/orders', user.id]" class="list-group-item list-group-item-action">Orders</a>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <p><strong>Profile</strong></p>
+        <div class="alert alert-success" role="alert" *ngIf="success">
+            <strong>Profile saved.</strong>&nbsp; 😎
+        </div>
+        <div class="list-group mb-5" *ngIf="!updating">
+            <div class="list-group-item">
+                <small>Name</small>
+                <div>{{ user.firstName }} {{ user.lastName }}</div>
+                <small>Address</small>
+                <div>{{ user.address }}</div>
+                <div>{{ user.addressOpt }}</div>
+                <div>{{ user.postalCode }} {{ user.city }}</div>
+                <small>{{ user.country | uppercase }}</small><br>
+                <small>Contacts</small>
+                <div>{{ user.phone }}</div>
+                <div><a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
+            </div>
+            <div class="list-group-item">
+                <button type="button" class="btn btn-link" (click)="editAddress()">Edit...</button>
+            </div>
+        </div>
+        <div class="list-group mb-5" *ngIf="updating">
+            <div class="list-group-item account-form">
+                <form [formGroup]="formAccount" (ngSubmit)="updateUser()">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="firstName">First name <span>*</span></label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Linus" formControlName="firstName" required>
+                            <div *ngIf="firstName.touched">
+                                <small class="form-text" [hidden]="!firstName.errors?.required"><span>First name is required.</span></small>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lastName">Last name <span>*</span></label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Torvalds" formControlName="lastName" required>
+                            <div *ngIf="lastName.touched">
+                                <small class="form-text" [hidden]="!lastName.errors?.required"><span>Last name is
+                                        required.</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="email">Email <span>*</span></label>
+                            <input type="email" class="form-control" id="email" placeholder="linus.torvalds@example.com" formControlName="email" required>
+                            <div *ngIf="email.touched">
+                                <small class="form-text" [hidden]="!email.errors?.required"><span>E-mail address is
+                                        required.</span></small>
+                                <small class="form-text" [hidden]="!email.errors?.email"><span>Please enter a valid
+                                        e-mail
+                                        address</span></small>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="password">Password <span>*</span></label>
+                            <input type="password" class="form-control" id="password" placeholder="strongandnotqwertyor1234" formControlName="password" required>
+                            <div *ngIf="password.touched">
+                                <small class="form-text" [hidden]="!password.errors?.required"><span>Password is
+                                        required.</span></small>
+                                <small class="form-text" [hidden]="!password.errors?.minlength"><span>The password has
+                                        to be
+                                        at least 8 characters long.</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address <span>*</span></label>
+                        <input type="text" class="form-control" id="address" placeholder="1234 Main St" formControlName="address" required>
+                        <div *ngIf="address.touched">
+                            <small class="form-text" [hidden]="!address.errors?.required"><span>Address is
+                                    required.</span></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="addressOpt">Address line 2</label>
+                        <input type="text" class="form-control" id="addressOpt" placeholder="Apartment, studio, or floor" formControlName="addressOpt">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="phone">Phone number <span>*</span></label>
+                            <input type="number" class="form-control" id="phone" placeholder="456789123" formControlName="phone" required>
+                            <div *ngIf="phone.touched">
+                                <small class="form-text" [hidden]="!phone.errors?.required"><span>Phone number is
+                                        required.</span></small>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="birthdate">Birthdate <span>*</span></label>
+                            <input type="date" class="form-control" id="birthdate" placeholder="date" formControlName="birthdate" required>
+                            <div *ngIf="birthdate.touched">
+                                <small class="form-text" [hidden]="!birthdate.errors?.required"><span>Birthdate is
+                                        required.</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label for="postalCode">Postal code <span>*</span></label>
+                            <input type="text" class="form-control" id="postalCode" placeholder="00100" formControlName="postalCode" required>
+                            <div *ngIf="postalCode.touched">
+                                <small class="form-text" [hidden]="!postalCode.errors?.required"><span>Code is
+                                        required.</span></small>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="city">City <span>*</span></label>
+                            <input type="text" class="form-control" id="city" placeholder="Helsinki" formControlName="city" required>
+                            <div *ngIf="city.touched">
+                                <small class="form-text" [hidden]="!city.errors?.required"><span>City is
+                                        required.</span></small>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="country">Country <span>*</span></label>
+                            <input type="text" class="form-control" id="country" placeholder="Finland" formControlName="country" required>
+                            <div *ngIf="country.touched">
+                                <small class="form-text" [hidden]="!country.errors?.required"><span>Country is
+                                        required.</span></small>
+                            </div>
+                        </div>
+                        <div class="form-group col">
+                            <small class="form-text text-muted mb-3"><span>*</span> Mandatory fields.</small>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <button type="button" class="btn btn-block btn-light" (click)="updating = !updating">Cancel</button>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <button type="submit" class="btn btn-block btn-primary" [disabled]="!formAccount.valid">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

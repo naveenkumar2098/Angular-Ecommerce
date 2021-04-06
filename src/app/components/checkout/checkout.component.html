@@ -1,0 +1,180 @@
+<div class="alert alert-success" role="alert" *ngIf="success">
+    <strong>Thank you very much ✔️</strong>&nbsp; Your order has been made.
+</div>
+<ng-container *ngIf="!success">
+    <p class="mb-5"><strong>Checkout</strong></p>
+    <div class="row col mb-5">
+        <button (click)="toCheckOut()" type="button" class="btn btn-light">&#8249; Go back</button>
+    </div>
+    <div class="row">
+        <div class="col-lg-7">
+            <p><strong>Shopping cart</strong></p>
+            <div class="list-group mb-5">
+                <ng-container *ngFor="let line of shoppingCart">
+                    <div class="list-group-item flex-column align-items-center">
+                        <div class="d-flex w-100 justify-content-between">
+                            <div class="mr-auto">
+                                <div class="product-img mr-4"><img src="{{ line.product.images[0] }}" alt="{{ line.product.model }} image"></div>
+                                <div class="product-info">
+                                    <small>{{ line.product.make }}</small><br>
+                                    <strong>{{ line.product.model }}</strong>
+                                </div>
+                            </div>
+                            <small class="details mr-4">{{ line.product.price | currency:'EUR' }}<br> per unit</small>
+                            <small class="details quantity mr-3">x {{ line.quantity }}</small>
+                            <small class="details total">{{ calculatePrice(line.product.id) | currency:'EUR' }}</small>
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="list-group-item flex-column align-items-center">
+                    <div class="d-flex w-100 justify-content-end">
+                        <small class="details mr-3">shipping</small>
+                        <small class="details total">{{ shippingPrice | currency:'EUR' }}</small>
+                    </div>
+                </div>
+                <div class="list-group-item flex-column align-items-center">
+                    <div class="d-flex w-100 justify-content-end">
+                        <small class="details mr-3">total</small>
+                        <small class="details total">{{ calculateTotal() | currency:'EUR' }}</small>
+                    </div>
+                </div>
+            </div>
+            <p><strong>Delivery address</strong></p>
+            <!-- Not updating -->
+            <div class="list-group mb-5" *ngIf="!updating">
+                <div class="list-group-item flex-column align-items-center">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="delivery-header"><strong>Deliver to:</strong></div>
+                        <button type="button" class="btn btn-link" (click)="editAddress()">Edit...</button>
+                    </div>
+                </div>
+                <div class="list-group-item">
+                    <small>Name</small>
+                    <div>{{ user.firstName }} {{ user.lastName }}</div>
+                    <small>Address</small>
+                    <div>{{ user.address }}</div>
+                    <div *ngIf="hasAddressOpt()">{{ user.addressOpt }}</div>
+                    <div>{{ user.postalCode }} {{ user.city }}</div>
+                    <small>{{ user.country | uppercase }}</small><br>
+                    <small>Contact</small>
+                    <div>{{ user.phone }}</div>
+                </div>
+            </div>
+            <!-- Updating Form -->
+            <div class="list-group mb-5" *ngIf="updating">
+                <div class="list-group-item checkout-form">
+                    <!-- Form start -->
+                    <form [formGroup]="formCheckout" (ngSubmit)="updateAddress()">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="firstName">First name <span>*</span></label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Linus" formControlName="firstName" required>
+                                <div *ngIf="firstName.touched">
+                                    <small class="form-text" [hidden]="!firstName.errors?.required"><span>First name is required.</span></small>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="lastName">Last name <span>*</span></label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Torvalds" formControlName="lastName" required>
+                                <div *ngIf="lastName.touched">
+                                    <small class="form-text" [hidden]="!lastName.errors?.required"><span>Last name is required.</span></small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address <span>*</span></label>
+                            <input type="text" class="form-control" id="address" placeholder="1234 Main St" formControlName="address" required>
+                            <div *ngIf="address.touched">
+                                <small class="form-text" [hidden]="!address.errors?.required"><span>Address is required.</span></small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="addressOpt">Address line 2</label>
+                            <input type="text" class="form-control" id="addressOpt" placeholder="Apartment, studio, or floor" formControlName="addressOpt">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone number <span>*</span></label>
+                            <input type="number" class="form-control" id="phone" placeholder="456789123" formControlName="phone" required>
+                            <div *ngIf="phone.touched">
+                                <small class="form-text" [hidden]="!phone.errors?.required"><span>Phone number is required.</span></small>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="postalCode">Postal code <span>*</span></label>
+                                <input type="text" class="form-control" id="postalCode" placeholder="00100" formControlName="postalCode" required>
+                                <div *ngIf="postalCode.touched">
+                                    <small class="form-text" [hidden]="!postalCode.errors?.required"><span>Required.</span></small>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="city">City <span>*</span></label>
+                                <input type="text" class="form-control" id="city" placeholder="Helsinki" formControlName="city" required>
+                                <div *ngIf="city.touched">
+                                    <small class="form-text" [hidden]="!city.errors?.required"><span>City is required.</span></small>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <label for="country">Country <span>*</span></label>
+                                <input type="text" class="form-control" id="country" placeholder="Finland" formControlName="country" required>
+                                <div *ngIf="country.touched">
+                                    <small class="form-text" [hidden]="!country.errors?.required"><span>Country is required.</span></small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <small class="form-text text-muted"><span>*</span> Mandatory fields.</small>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <button type="button" class="btn btn-block btn-light" (click)="updating = !updating">Cancel</button>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <button type="submit" class="btn btn-block btn-warning" [disabled]="!formCheckout.valid">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Form end -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 mb-5">
+            <div class="shipping mb-5">
+                <p><strong>Shipping</strong></p>
+                <div class="list-group mb-5">
+                    <ng-container *ngFor="let shipping of shippingMethods; index as i">
+                        <div class="list-group-item flex-column align-items-center">
+                            <div class="form-check d-flex w-100 justify-content-between">
+                                <input class="form-check-input" type="radio" name="shipping" id="shipping{{ shipping.id }}" value="{{ shipping.id }}" [(ngModel)]="shippingSelected" [checked]="true" (change)="getShippingPrice()">
+                                <label class="form-check-label ml-2" for="shipping{{ shipping.id }}">{{ shipping.name }}</label>
+                                <small>{{ shipping.price | currency:'EUR' }}</small>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="payment mb-5">
+                <p><strong>Payment</strong></p>
+                <div class="list-group mb-5">
+                    <ng-container *ngFor="let payment of paymentMethods">
+                        <div class="list-group-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="payment" id="payment{{ payment.id }}" value="{{ payment.id }}" [(ngModel)]="paymentSelected">
+                                <label class="form-check-label ml-2" for="payment{{payment.id}}">{{ payment.name }}</label>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="list-group mb-3">
+                <div class="list-group-item flex-column align-items-center">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div><strong>Total</strong></div>
+                        <div><strong>{{ calculateTotal() | currency:'EUR' }}</strong></div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-lg btn-block btn-warning" [disabled]="updating" (click)="confirmOrder()">Confirm order</button>
+        </div>
+    </div>
+</ng-container>

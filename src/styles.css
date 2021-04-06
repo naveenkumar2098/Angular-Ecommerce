@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    scroll-behavior: smooth;
+}
+
+.form-control::placeholder {
+    color: #cccccc;
+}
+
+textarea {
+    width: 100%;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: 6px 12px;
+}
+
+textarea::placeholder {
+    color: #cccccc;
+}
+
+.login-box,
+.register-box,
+.contacts-box {
+    padding: 30px;
+    border-radius: 20px;
+    margin: auto;
+    box-shadow: 0 5px 10px 5px #f2f2f2;
+}
+
+.login-box span,
+.register-box span,
+.contacts-box span,
+.checkout-form span,
+.account-form span {
+    color: crimson;
+}
